@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Bản đồ"
+        android:id="@+id/map"
+        android:icon="@drawable/ic_action_seting"
+        />
+
+    <item android:title="Lịch sử"
+        android:id="@+id/history"
+        android:icon="@drawable/ic_action_seting"
+        />
+
+    <item android:title="Thông báo"
+        android:id="@+id/noti"
+        android:icon="@drawable/ic_action_seting"
+        />
+
+    <item android:title="Thông kê"
+        android:id="@+id/thongke"
+        android:icon="@drawable/ic_action_seting"
+        />
+
+    <item android:title="Thêm"
+        android:id="@+id/more"
+        android:icon="@drawable/ic_action_seting"
+        />
+</menu>

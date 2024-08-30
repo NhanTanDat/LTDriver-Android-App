@@ -26,11 +26,14 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import java.util.concurrent.Executors
 import android.util.Log
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsControllerCompat
+import com.mapbox.maps.plugin.scalebar.scalebar
+
 class MainActivity : AppCompatActivity(), PermissionsListener {
 
     private lateinit var mapView: MapView
 
-    open val isTrackingMode: Boolean = true
 
     lateinit var permissionsManager: PermissionsManager
 
@@ -48,55 +51,59 @@ class MainActivity : AppCompatActivity(), PermissionsListener {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+//        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+//
+//        if (checkLocationPermission()) {
+//
+//        } else {
+//            requestLocationPermission()
+//        }
+//
+//        enableEdgeToEdge()
+//        if (PermissionsManager.areLocationPermissionsGranted(this)) { // If inside an Activity
+//            // if (PermissionsManager.areLocationPermissionsGranted(getActivity())) { // If inside a Fragment
+//            // Permission sensitive logic called here, such as activating the Maps SDK's LocationComponent to show the device's location
+//        } else {
+//            permissionsManager = PermissionsManager(this)
+//            permissionsManager.requestLocationPermissions(this)
+//        }
+        setContentView(R.layout.activity_main)
 
-        if (checkLocationPermission()) {
-
-        } else {
-            requestLocationPermission()
-        }
-
-        enableEdgeToEdge()
-        if (PermissionsManager.areLocationPermissionsGranted(this)) { // If inside an Activity
-            // if (PermissionsManager.areLocationPermissionsGranted(getActivity())) { // If inside a Fragment
-            // Permission sensitive logic called here, such as activating the Maps SDK's LocationComponent to show the device's location
-        } else {
-            permissionsManager = PermissionsManager(this)
-            permissionsManager.requestLocationPermissions(this)
-        }
-        val mapView = MapView(this)
-        setContentView(mapView)
-        mapView.location.puckBearing = PuckBearing.HEADING
-        mapView.location.puckBearing = PuckBearing.COURSE
-        mapView.getMapboxMap().loadStyleUri(Style.MAPBOX_STREETS) { style ->
-
-            mapView.location.updateSettings {
-                enabled = true
-                locationPuck = LocationPuck2D(
-                    topImage = null,
-                    bearingImage = null,
-                    shadowImage = null
-                )
-                pulsingEnabled = true
-            }
-            fusedLocationClient.lastLocation
-                .addOnSuccessListener { location->
-                    if (location != null) {
-                        mapView.mapboxMap.setCamera(
-                            CameraOptions.Builder()
-                                .center(Point.fromLngLat(location.longitude, location.latitude))
-                                .pitch(0.0)
-                                .zoom(15.0)
-                                .bearing(0.0)
-                                .build()
-                        )
-                    }else{
-
-                    }
-
-                }
-
-        }
+//        mapView = findViewById(R.id.mapView)
+//
+//        WindowCompat.setDecorFitsSystemWindows(window, false)
+//        mapView.scalebar.enabled = false
+//
+//        mapView.location.puckBearing = PuckBearing.HEADING
+//        mapView.location.puckBearing = PuckBearing.COURSE
+//        mapView.getMapboxMap().loadStyleUri(Style.MAPBOX_STREETS) { style ->
+//
+//            mapView.location.updateSettings {
+//                enabled = true
+//                locationPuck = LocationPuck2D(
+//                    topImage = null,
+//                    bearingImage = null,
+//                    shadowImage = null
+//                )
+//                pulsingEnabled = true
+//            }
+//            fusedLocationClient.lastLocation
+//                .addOnSuccessListener { location->
+//                    if (location != null) {
+//                        mapView.mapboxMap.setCamera(
+//                            CameraOptions.Builder()
+//                                .center(Point.fromLngLat(location.longitude, location.latitude))
+//                                .pitch(0.0)
+//                                .zoom(15.0)
+//                                .bearing(0.0)
+//                                .build()
+//                        )
+//                    }else{
+//
+//                    }
+//
+//                }
+//        }
     }
 
     override fun onExplanationNeeded(permissionsToExplain: List<String>) {
