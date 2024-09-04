@@ -30,3 +30,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "LTDriver"
 include(":app")
+include(":app:core")

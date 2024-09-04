@@ -7,31 +7,29 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<!--    <FrameLayout-->
-<!--        android:id="@+id/frameLayout"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="0dp"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent">-->
-
-<!--        <com.mapbox.maps.MapView-->
-<!--            android:id="@+id/mapView"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            app:mapbox_locationComponentEnabled="true"-->
-<!--            app:mapbox_locationComponentPuckBearing="heading" />-->
-<!--    </FrameLayout>-->
-
-    <com.example.ltdriver.CustomBottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:fitsSystemWindows="true">
 
+        <com.mapbox.maps.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:mapbox_locationComponentEnabled="true"
+            app:mapbox_locationComponentPuckBearing="heading" />
 
+        <com.example.ltdriver.CustomBottomNavigationView
+            android:id="@+id/customBottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom" />
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

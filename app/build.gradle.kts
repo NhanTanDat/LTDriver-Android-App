@@ -50,4 +50,5 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("com.mapbox.maps:android:11.6.0")
     implementation("com.google.android.gms:play-services-location:21.0.1")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 }
