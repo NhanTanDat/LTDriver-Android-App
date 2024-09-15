@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">LTDriver</string>
+    <string name="history_icon">History Icon</string>
+    <string name="map_icon">Map Icon</string>
+    <string name="statistics_icon">Statistics Icon</string>
+    <string name="more_icon">More Icon</string>
 </resources>

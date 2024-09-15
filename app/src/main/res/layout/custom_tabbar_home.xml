@@ -1,95 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="55dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/bottom_nav"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:background="@drawable/bottom_nav">
 
+    <!-- Bản đồ -->
     <LinearLayout
+        android:id="@+id/mapLayout"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:gravity="center"
-        >
+        android:gravity="center">
 
         <ImageView
+            android:id="@+id/mapIcon"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_action_seting" />
+            android:src="@drawable/ic_action_seting"
+            android:contentDescription="@string/map_icon"
+            app:tint="@color/colorDefault" /> <!-- Use default color -->
 
         <TextView
+            android:id="@+id/mapText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Bản đồ"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            android:textColor="@color/colorDefault" /> <!-- Use default color -->
     </LinearLayout>
 
+    <!-- Lịch sử -->
     <LinearLayout
+        android:id="@+id/historyLayout"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:gravity="center"
-        >
+        android:gravity="center">
 
         <ImageView
+            android:id="@+id/historyIcon"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_action_seting" />
+            android:src="@drawable/ic_action_seting"
+            android:contentDescription="@string/history_icon"
+            app:tint="@color/colorDefault" /> <!-- Use default color -->
 
         <TextView
+            android:id="@+id/historyText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lịch sử"
             android:textSize="12sp"
-            android:gravity="center" />
+            android:gravity="center"
+            android:textColor="@color/colorDefault" /> <!-- Use default color -->
     </LinearLayout>
 
-
+    <!-- Thống kê -->
     <LinearLayout
+        android:id="@+id/statsLayout"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:gravity="center"
-        >
+        android:gravity="center">
 
         <ImageView
+            android:id="@+id/statsIcon"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_action_seting"
-            app:tint="#FF0000"
-            />
+            android:contentDescription="@string/statistics_icon"
+            app:tint="@color/colorDefault" /> <!-- Use default color -->
 
         <TextView
+            android:id="@+id/statsText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Thống kê"
             android:textSize="12sp"
-            android:gravity="center" />
+            android:gravity="center"
+            android:textColor="@color/colorDefault" /> <!-- Use default color -->
     </LinearLayout>
 
+    <!-- Thêm -->
     <LinearLayout
+        android:id="@+id/moreLayout"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:gravity="center"
-        >
+        android:gravity="center">
 
         <ImageView
+            android:id="@+id/moreIcon"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_action_seting" />
+            android:src="@drawable/ic_action_seting"
+            android:contentDescription="@string/more_icon"
+            app:tint="@color/colorDefault" /> <!-- Use default color -->
 
         <TextView
+            android:id="@+id/moreText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Thêm"
             android:textSize="12sp"
-            android:gravity="center" />
+            android:gravity="center"
+            android:textColor="@color/colorDefault" /> <!-- Use default color -->
     </LinearLayout>
 </LinearLayout>

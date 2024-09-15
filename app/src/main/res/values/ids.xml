@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="mapLayout" type="id" />
+    <item name="mapIcon" type="id" />
+    <item name="mapText" type="id" />
+    <item name="historyIcon" type="id" />
+    <item name="historyText" type="id" />
+    <item name="statsLayout" type="id" />
+    <item name="statsIcon" type="id" />
+    <item name="statsText" type="id" />
+    <item name="moreIcon" type="id" />
+    <item name="moreText" type="id" />
+</resources>
