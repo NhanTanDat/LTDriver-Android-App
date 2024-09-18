@@ -18,15 +18,17 @@
             android:id="@+id/mapImageView"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_action_seting" />
+            android:src="@drawable/ic_action_home"
+            app:tint="#38B6FF"/>
 
         <TextView
             android:id="@+id/mapTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Bản đồ"
+            android:text="Trang Chủ"
             android:textSize="12sp"
+            android:textStyle="bold"
             android:textColor="@drawable/text_color_selector"/>
     </LinearLayout>
 
@@ -43,15 +45,17 @@
             android:id="@+id/historyImageView"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_action_seting" />
+            android:src="@drawable/ic_action_wallet"
+           />
 
         <TextView
             android:id="@+id/historyTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lịch sử"
+            android:text="Doanh Thu"
             android:textSize="12sp"
             android:gravity="center"
+            android:textStyle="bold"
             android:textColor="@drawable/text_color_selector"/>
     </LinearLayout>
 
@@ -68,16 +72,17 @@
             android:id="@+id/statisticsImageView"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_action_seting"
-            app:tint="#FF0000"/>
+            android:src="@drawable/ic_action_coupon"
+           />
 
         <TextView
             android:id="@+id/statisticsTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Thống kê"
+            android:text="Ưu Đãi"
             android:textSize="12sp"
             android:gravity="center"
+            android:textStyle="bold"
             android:textColor="@drawable/text_color_selector"/>
     </LinearLayout>
 
@@ -94,16 +99,17 @@
             android:id="@+id/moreImageView"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_action_seting"
+            android:src="@drawable/ic_action_letter"
             />
 
         <TextView
             android:id="@+id/moreTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Thêm"
+            android:text="Hộp Thư"
             android:textSize="12sp"
             android:gravity="center"
+            android:textStyle="bold"
             android:textColor="@drawable/text_color_selector"/>
     </LinearLayout>
 </LinearLayout>
