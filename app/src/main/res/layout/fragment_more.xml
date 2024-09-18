@@ -20,20 +20,7 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <!-- Nút trạng thái -->
-            <Button
-                android:id="@+id/statusButton"
-                android:layout_width="175dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="210dp"
-                android:backgroundTint="@color/orange"
-                android:text="Ngoại Tuyến"
-                android:textColor="@android:color/white"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0" />
-        </LinearLayout>
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <!-- Thêm ScrollView chứa item_function -->
         <ScrollView

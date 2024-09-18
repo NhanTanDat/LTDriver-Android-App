@@ -43,6 +43,7 @@ class CustomBottomNavigationView @JvmOverloads constructor(
             binding.historyImageView.setColorFilter(defaultTextColor)
             binding.statisticsImageView.setColorFilter(defaultTextColor)
             binding.moreImageView.setColorFilter(defaultTextColor)
+
         }
 
         binding.mapLayout.setOnClickListener { view ->

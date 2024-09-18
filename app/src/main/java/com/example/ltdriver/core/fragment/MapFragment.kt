@@ -68,7 +68,7 @@ class MapFragment : Fragment() {
         )
 
         // Lấy Button từ popup_layout và xử lý sự kiện nhấn
-        val closeButton = popupView.findViewById<Button>(R.id.closePopupButton)
+        val closeButton = popupView.findViewById<Button>(R.id.acceptPopupButton)
         closeButton.setOnClickListener {
             popupWindow.dismiss() // Đóng popup khi nhấn nút
         }

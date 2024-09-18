@@ -9,4 +9,5 @@
     <color name="defaultText">#D3D3D3</color>
     <color name="orange">#CC6600</color>
     <color name="blue">#38B6FF</color>
+    <color name="red">#FF0000</color>
 </resources>

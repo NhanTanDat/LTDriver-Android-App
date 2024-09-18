@@ -27,6 +27,7 @@ import com.mapbox.android.core.permissions.PermissionsListener
 import androidx.fragment.app.FragmentManager
 import com.example.ltdriver.core.fragment.HistoryFragment
 import com.example.ltdriver.core.fragment.MapFragment
+import com.example.ltdriver.core.fragment.MoreFragment
 import com.example.ltdriver.core.fragment.StatisticsFragment
 
 class MainActivity : AppCompatActivity(), PermissionsListener {
@@ -135,7 +136,8 @@ class MainActivity : AppCompatActivity(), PermissionsListener {
                 R.id.mapLayout -> loadFragment(MapFragment())
                 R.id.historyLayout -> loadFragment(HistoryFragment())
                 R.id.statisticsLayout -> loadFragment(StatisticsFragment())
-                // Handle other tabs if necessary
+                R.id.moreLayout -> loadFragment(MoreFragment())
+
             }
         }
 

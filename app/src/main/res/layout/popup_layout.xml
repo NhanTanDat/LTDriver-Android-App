@@ -1,31 +1,157 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#80000000"> <!-- Tạo lớp mờ -->
 
     <LinearLayout
-        android:layout_width="349dp"
-        android:layout_height="547dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:background="@drawable/border_background"
         android:orientation="vertical"
         android:padding="16dp">
 
-        <TextView
-            android:id="@+id/popupText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đơn Hàng Ưu Tiên"
-            android:textColor="@android:color/black"
-            android:textSize="16sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/closePopupButton"
-            android:layout_width="321dp"
+            <!-- Tiêu đề -->
+            <TextView
+                android:id="@+id/popupText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                android:text="Đơn Hàng Ưu Tiên"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:paddingTop="16sp"
+                android:fontFamily="@font/sfpro_bold"/>
+
+            <!-- Layout chứa Số tiền và Số km nằm ngang -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/distance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="12.Km"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/sfpro_bold"/>
+
+                <TextView
+                    android:id="@+id/amount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="300.000đ"
+                    android:textColor="@color/red"
+                    android:textSize="28sp"
+                    android:fontFamily="@font/sfpro_bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
+
+
+                <TextView
+                    android:id="@+id/orderType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Loại đơn: Siêu Tốc"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/sfpro_medium" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_fast"
+                    android:background="@drawable/border_background_map"/>
+            </LinearLayout>
+
+
+            <!-- Thông tin địa chỉ giao nhận -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/receiveLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="start"
+                    android:text="Nơi nhận:\n 255 Phạm Văn Chiêu, Phường 14, Gò Vấp, Hồ Chí Minh, Việt Nam"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/sfpro_medium"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/deliveryLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/sfpro_medium"
+                android:gravity="start"
+                android:text="Nơi giao:\n 12 Nguyễn Văn Bảo, Phường 4, Gò Vấp, Hồ Chí Minh, Việt Nam"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+        <!-- TextView dòng thông báo -->
+        <TextView
+            android:id="@+id/warningText"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Việc bỏ qua hoặc từ chối đơn hàng này sẽ làm giảm tỉ lệ nhận đơn của bạn"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="13sp"
+            android:gravity="center" />
+
+        <!-- Button đóng -->
+        <Button
+            android:id="@+id/acceptPopupButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
             android:backgroundTint="@android:color/holo_blue_light"
-            android:text="Đóng"
-            android:textColor="@android:color/white" />
+            android:text="Chấp Nhận"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/sfpro_medium"/>
+        <Button
+            android:id="@+id/refusePopupButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/defaultText"
+            android:text="Từ Chối"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            />
+
     </LinearLayout>
+
 </RelativeLayout>
