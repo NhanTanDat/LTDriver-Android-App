@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Màu khi nhấn vào -->
     <item android:state_pressed="true" android:drawable="@color/colorPressed" />
-    <item android:drawable="@color/colorNormal" />
+    <!-- Màu mặc định -->
+    <item android:drawable="@color/colorDefault" />
 </selector>

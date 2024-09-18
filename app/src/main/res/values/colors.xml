@@ -2,9 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="colorSelected">#38B6FF</color>
-    <color name="colorDefault">#FF000000</color>
-    <color name="colorPressed">#FF6200EE</color>
-    <color name="colorNormal">#FFBB86FC</color>
-
+    <color name="colorPressed">#FFFFFFFF</color>
+    <color name="colorDefault">#FFFFFFFF</color>
+    <color name="colorIconPressed">#38B6FF</color>
+    <color name="defaultBackground">#FFFFFF</color>
+    <color name="defaultText">#D3D3D3</color>
+    <color name="orange">#CC6600</color>
+    <color name="blue">#38B6FF</color>
 </resources>

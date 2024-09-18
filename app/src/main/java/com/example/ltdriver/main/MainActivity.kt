@@ -1,11 +1,8 @@
 package com.example.ltdriver.main
 
 import android.Manifest
-import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.os.Bundle
-
-import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -14,10 +11,7 @@ import androidx.core.view.WindowCompat
 import androidx.fragment.app.Fragment
 import com.example.ltdriver.R
 
-import com.example.ltdriver.core.fragment.HistoryFragment
-import com.example.ltdriver.core.fragment.MapFragment
-import com.example.ltdriver.core.fragment.MoreFragment
-import com.example.ltdriver.core.fragment.StatsFragment
+import com.example.ltdriver.core.tabbar.CustomBottomNavigationView
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.mapbox.geojson.Point
@@ -27,64 +21,44 @@ import com.mapbox.maps.Style
 import com.mapbox.maps.plugin.PuckBearing
 import com.mapbox.maps.plugin.locationcomponent.createDefault2DPuck
 import com.mapbox.maps.plugin.locationcomponent.location
-
 import com.mapbox.maps.plugin.scalebar.scalebar
 import com.mapbox.android.core.permissions.PermissionsManager
 import com.mapbox.android.core.permissions.PermissionsListener
-class MainActivity : AppCompatActivity()
-    //, PermissionsListener
-{
+import androidx.fragment.app.FragmentManager
+import com.example.ltdriver.core.fragment.HistoryFragment
+import com.example.ltdriver.core.fragment.MapFragment
+import com.example.ltdriver.core.fragment.StatisticsFragment
+
+class MainActivity : AppCompatActivity(), PermissionsListener {
+
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1
     }
 
-   // private lateinit var mapView: MapView
+    private lateinit var mapView: MapView
     private lateinit var permissionsManager: PermissionsManager
     private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private lateinit var customBottomNavigationView: CustomBottomNavigationView
+    private lateinit var fragmentManager: FragmentManager
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-
-        // Tìm các LinearLayout từ XML
-        val mapLayout = findViewById<LinearLayout>(R.id.mapLayout)
-        val historyLayout = findViewById<LinearLayout>(R.id.historyLayout)
-        val statsLayout = findViewById<LinearLayout>(R.id.statsLayout)
-        val moreLayout = findViewById<LinearLayout>(R.id.moreLayout)
-
-        // Đặt sự kiện nhấn vào từng mục
-        mapLayout?.setOnClickListener {
-            replaceFragment(MapFragment())
-        }
-
-        historyLayout?.setOnClickListener {
-            replaceFragment(HistoryFragment())
-        }
-
-        statsLayout?.setOnClickListener {
-            replaceFragment(StatsFragment())
-        }
-
-        moreLayout?.setOnClickListener {
-            replaceFragment(MoreFragment())
-        }
-
-        // Đặt Fragment mặc định (ví dụ là MapFragment)
-        replaceFragment(MapFragment())
-
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
        // mapView = findViewById(R.id.mapView)
+        customBottomNavigationView = findViewById(R.id.customBottomNavigationView)
+        fragmentManager = supportFragmentManager
 
         enableEdgeToEdge()
 
-        if (checkLocationPermission()) {
-        //    initializeMap()
-        } else {
-            requestLocationPermission()
-        }
+//        if (checkLocationPermission()) {
+//            initializeMap()
+//        } else {
+//            requestLocationPermission()
+//        }
+
+        setupBottomNavigation()
     }
 
 //    private fun initializeMap() {
@@ -95,7 +69,7 @@ class MainActivity : AppCompatActivity()
 //            WindowCompat.setDecorFitsSystemWindows(window, false)
 //            mapView.scalebar.enabled = false
 //
-//            mapView.getMapboxMap().loadStyleUri(Style.MAPBOX_STREETS) {
+//            mapView.getMapboxMap().loadStyleUri(Style.MAPBOX_STREETS) { style ->
 //                fusedLocationClient.lastLocation
 //                    .addOnSuccessListener { location ->
 //                        if (location != null) {
@@ -112,12 +86,6 @@ class MainActivity : AppCompatActivity()
 //            }
 //        }
 //    }
-
-    private fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.frameLayout, fragment)
-            .commit()
-    }
 
     private fun checkLocationPermission(): Boolean {
         return ContextCompat.checkSelfPermission(
@@ -145,9 +113,13 @@ class MainActivity : AppCompatActivity()
         }
     }
 
-//    override fun onExplanationNeeded(permissionsToExplain: List<String>) {
-//        // Provide an explanation to the user if necessary
-//    }
+    override fun onExplanationNeeded(permissionsToExplain: List<String>) {
+        // Provide an explanation to the user if necessary
+    }
+
+    override fun onPermissionResult(granted: Boolean) {
+        TODO("Not yet implemented")
+    }
 
 //    override fun onPermissionResult(granted: Boolean) {
 //        if (granted) {
@@ -156,4 +128,24 @@ class MainActivity : AppCompatActivity()
 //            // Handle permission denied case
 //        }
 //    }
+
+    private fun setupBottomNavigation() {
+        customBottomNavigationView.setOnTabClickListener { tabId ->
+            when (tabId) {
+                R.id.mapLayout -> loadFragment(MapFragment())
+                R.id.historyLayout -> loadFragment(HistoryFragment())
+                R.id.statisticsLayout -> loadFragment(StatisticsFragment())
+                // Handle other tabs if necessary
+            }
+        }
+
+        // Set default selected tab
+        loadFragment(MapFragment())
+    }
+
+    private fun loadFragment(fragment: Fragment) {
+        fragmentManager.beginTransaction()
+            .replace(R.id.frameLayout, fragment)
+            .commit()
+    }
 }

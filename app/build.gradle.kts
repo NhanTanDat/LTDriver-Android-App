@@ -45,11 +45,12 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.play.services.maps)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("com.mapbox.maps:android:11.6.0")
     implementation("com.google.android.gms:play-services-location:21.0.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation ("androidx.appcompat:appcompat:1.3.1")
+
 }
