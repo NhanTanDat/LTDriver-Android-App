@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!-- MapView -->
     <com.mapbox.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="match_parent"
@@ -49,8 +51,6 @@
                     android:textAlignment="center"/>
 
             </LinearLayout>
-            <!-- Avatar ImageView -->
-
 
             <!-- Button với icon -->
             <ImageButton
@@ -64,8 +64,12 @@
                 android:background="@drawable/rounded_background"
                 />
 
-
         </LinearLayout>
 
+
+
     </com.mapbox.maps.MapView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Popup layout ẩn ban đầu -->
+
+</FrameLayout>
